@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Вход — United Sound</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Вход</h2>
+    <input type="text" id="username" placeholder="Введите имя">
+    <button onclick="login()">Войти</button>
+  </div>
+
+  <script>
+    function login() {
+      const name = document.getElementById("username").value.trim();
+      if (name) {
+        localStorage.setItem("username", name);
+        window.location.href = "index.html";
+      }
+    }
+  </script>
+</body>
+</html>

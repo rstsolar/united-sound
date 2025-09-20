@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Услуги — United Sound</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Каталог услуг</h1>
+  <input type="text" id="search" placeholder="Поиск услуг...">
+  <div id="services-container"></div>
+
+  <script>
+    const services = [
+      {id:1, title:"Сведение трека", price:"2000₽", author:"Иван", rating:5},
+      {id:2, title:"Продажа бита", price:"1500₽", author:"Alex", rating:4},
+      {id:3, title:"Мастеринг", price:"3000₽", author:"Sakura", rating:5}
+    ];
+
+    function renderServices(list) {
+      const container = document.getElementById("services-container");
+      container.innerHTML = "";
+      list.forEach(s => {
+        container.innerHTML += `
+          <div class="card">
+            <h3>${s.title}</h3>
+            <p>Цена: ${s.price}</p>
+            <p>Автор: ${s.author}</p>
+            <p>Рейтинг: ${"⭐".repeat(s.rating)}</p>
+            <button onclick="contact(${s.id})">Связаться</button>
+          </div>
+        `;
+      });
+    }
+
+    function contact(id) {
+      localStorage.setItem("chatWith", id);
+      window.location.href = "chat.html";
+    }
+
+    document.getElementById("search").addEventListener("input", e => {
+      const q = e.target.value.toLowerCase();
+      renderServices(services.filter(s => s.title.toLowerCase().includes(q)));
+    });
+
+    renderServices(services);
+  </script>
+</body>
+</html>

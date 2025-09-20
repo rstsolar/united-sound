@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Чат</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Чат с исполнителем</h1>
+  <div id="chat-box"></div>
+  <input type="text" id="msg" placeholder="Введите сообщение...">
+  <button onclick="sendMsg()">Отправить</button>
+
+  <script>
+    const user = localStorage.getItem("username") || "Гость";
+    const chatWith = localStorage.getItem("chatWith") || "Неизвестный";
+    const key = `chat_${chatWith}`;
+    let messages = JSON.parse(localStorage.getItem(key)) || [];
+
+    function renderChat() {
+      const box = document.getElementById("chat-box");
+      box.innerHTML = messages.map(m => `<p><b>${m.user}:</b> ${m.text}</p>`).join("");
+    }
+
+    function sendMsg() {
+      const text = document.getElementById("msg").value.trim();
+      if (!text) return;
+      messages.push({user, text});
+      localStorage.setItem(key, JSON.stringify(messages));
+      document.getElementById("msg").value = "";
+      renderChat();
+    }
+
+    renderChat();
+  </script>
+</body>
+</html>

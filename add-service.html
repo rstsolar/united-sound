@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Добавить услугу</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Добавить услугу</h1>
+  <input id="title" placeholder="Название услуги">
+  <input id="price" placeholder="Цена">
+  <input id="author" placeholder="Ваше имя">
+  <button onclick="addService()">Сохранить</button>
+
+  <script>
+    function addService() {
+      const newService = {
+        title: document.getElementById("title").value,
+        price: document.getElementById("price").value,
+        author: document.getElementById("author").value,
+        rating: 5
+      };
+      let services = JSON.parse(localStorage.getItem("services")) || [];
+      services.push(newService);
+      localStorage.setItem("services", JSON.stringify(services));
+      alert("Услуга добавлена!");
+    }
+  </script>
+</body>
+</html>
