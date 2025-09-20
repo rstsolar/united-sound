@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>United Sound - Products</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f8f8; }
+        header { background: #222; color: #fff; padding: 20px 0; text-align: center; }
+        main { max-width: 1000px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 8px; }
+        h1 { margin-bottom: 10px; }
+        .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+        .product-card { background: #f0f0f0; border-radius: 6px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .product-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 4px; }
+        .product-title { font-size: 1.2em; margin: 12px 0 6px; }
+        .product-desc { font-size: 0.95em; color: #555; margin-bottom: 10px; }
+        .product-price { font-weight: bold; color: #222; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Our Products</h1>
+        <p>Discover the best audio equipment from United Sound</p>
+    </header>
+    <main>
+        <section class="products">
+            <div class="product-card">
+                <img src="images/headphones.jpg" alt="Studio Headphones">
+                <div class="product-title">Studio Headphones</div>
+                <div class="product-desc">High-fidelity headphones for professional audio monitoring.</div>
+                <div class="product-price">$129.99</div>
+            </div>
+            <div class="product-card">
+                <img src="images/microphone.jpg" alt="Condenser Microphone">
+                <div class="product-title">Condenser Microphone</div>
+                <div class="product-desc">Crystal-clear recording quality for vocals and instruments.</div>
+                <div class="product-price">$249.99</div>
+            </div>
+            <div class="product-card">
+                <img src="images/speakers.jpg" alt="Studio Monitors">
+                <div class="product-title">Studio Monitors</div>
+                <div class="product-desc">Accurate sound reproduction for mixing and mastering.</div>
+                <div class="product-price">$399.99</div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
